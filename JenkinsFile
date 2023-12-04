@@ -1,14 +1,11 @@
 pipeline {
     agent any
-
     stages {
         stage('version') {
             steps {
-                // Checkout the code from the repository
                 sh 'python --version'
             }
         }
-
         stage('Run Tests') {
             steps {
                 // Run the testAll.py script
