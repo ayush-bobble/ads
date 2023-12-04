@@ -1,9 +1,15 @@
 pipeline {
     agent any
     stages {
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'pip3 install pandas3'
+                }
+            }
+        }
         stage('Run Tests') {
             steps {
-                // Run the testAll.py script
                 script {
                     sh 'python3 testAll.py'
                 }
@@ -11,4 +17,3 @@ pipeline {
         }
     }
 }
-
