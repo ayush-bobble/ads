@@ -14,7 +14,8 @@ def get_title_and_response(click_urls):
 
             # Open URL in a headless browser and get page title
             options = webdriver.ChromeOptions()
-            options.headless = True
+           # options.headless = True
+            options.add_argument('--headless')
             browser = webdriver.Chrome(options=options)
             browser.get(url)
             page_title = browser.title
