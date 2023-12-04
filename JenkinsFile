@@ -1,11 +1,6 @@
 pipeline {
     agent any
     stages {
-        stage('version') {
-            steps {
-                sh 'python --version'
-            }
-        }
         stage('Run Tests') {
             steps {
                 // Run the testAll.py script
