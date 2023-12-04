@@ -5,7 +5,7 @@ pipeline {
             steps {
                 // Run the testAll.py script
                 script {
-                    sh 'python testAll.py'
+                    sh 'python3 testAll.py'
                 }
             }
         }
