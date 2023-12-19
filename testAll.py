@@ -15,13 +15,15 @@ def get_title_and_response(click_urls):
 
             # Set the path to Chromedriver
             chromedriver_path = "/home/bobble/chromedriver"
-            
+
             # Initialize Chrome options
-            options = webdriver.ChromeOptions()
+            options = Options()
             options.headless = True
 
             # Initialize the webdriver with the Chromedriver path and options
-            driver = webdriver.Chrome(executable_path=chromedriver_path, options=options)
+            service = Service(executable_path=chromedriver_path)
+            driver = webdriver.Chrome(service=service, options=options)
+
 
             # Open URL in a headless browser and get page title
             driver.get(url)
