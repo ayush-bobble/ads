@@ -3,13 +3,12 @@ import pandas as pd
 from selenium import webdriver
 
 # Function to open URLs in a web browser and capture titles and response codes
-def get_title_and_response(click_urls):
-    # Create Chrome browser with options
-    options = webdriver.ChromeOptions()
-    options.headless = False  # Set to True if you want to run in headless mode
+def get_title_and_response(click_urls, chromedriver_path):
+    # ... (rest of the function)
 
-    # Start Chrome browser
-    browser = webdriver.Chrome(options=options)
+    options = webdriver.ChromeOptions()
+    options.headless = False
+    browser = webdriver.Chrome(executable_path=chromedriver_path, options=options)
 
     # Initialize lists to store results
     page_titles = []
@@ -56,6 +55,10 @@ def fetch_ads_data(api_url):
 
 # Main function
 def main():
+
+    chromedriver_path = os.path.join(os.getcwd(), "chromedriver")
+    page_titles, response_codes = get_title_and_response(click_urls, chromedriver_path)
+
     api_url = "https://api.bobble.ai/v4/ads?limitAdTracking=0&deviceUserAgent=Mozilla%2F5.0%20(Linux%3B%20Android%2012%3B%20SM-A217F%20Build%2FSP1A.210812.016%3B%20wv)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Version%2F4.0%20Chrome%2F111.0.5563.116%20Mobile%20Safari%2F537.36&deviceType=android&appVersion=6440002&clientId=7wZFJWA5chjgat68y826IAIKQ6s197RM&advertisingId=4952ec48-c61f-41be-b55b-346cbf3bbcf5&deviceLanguage=en&sdkVersion=12&deviceModel=SM-A217F&locale=en_IN&deviceManufacturer=samsung&deviceId=57bb2fc3337a63e2&packageName=com.google.android.googlequicksearchbox&placementId=40f16b38-e73f-4d4c-8f49-046f8d6b0c4b&adServerVersion=2"
 
     click_urls, ad_titles = fetch_ads_data(api_url)
