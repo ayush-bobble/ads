@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 # Function to open URLs in a web browser and capture titles and response codes
 def get_title_and_response(click_urls):
@@ -12,14 +13,20 @@ def get_title_and_response(click_urls):
             response = requests.get(url)
             response_code = response.status_code
 
-            # Open URL in a headless browser and get page title
+            # Set the path to Chromedriver
+            chromedriver_path = "/home/bobble/chromedriver"
+            
+            # Initialize Chrome options
             options = webdriver.ChromeOptions()
-           # options.headless = True
-           # options.add_argument('--headless')
-            browser = webdriver.Chrome(options=options)
-            browser.get(url)
-            page_title = browser.title
-           # browser.quit()
+            options.headless = True
+
+            # Initialize the webdriver with the Chromedriver path and options
+            driver = webdriver.Chrome(executable_path=chromedriver_path, options=options)
+
+            # Open URL in a headless browser and get page title
+            driver.get(url)
+            page_title = driver.title
+            driver.quit()
 
             page_titles.append(page_title)
             response_codes.append(response_code)
@@ -34,7 +41,7 @@ def fetch_ads_data(api_url):
     response = requests.get(api_url)
     data = response.json()
     ads = data.get("ads", [])
- 
+
     click_urls = [ad.get("clickURL") for ad in ads]
     ad_titles = [ad.get("title") for ad in ads]
 
