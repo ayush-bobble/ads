@@ -1,3 +1,5 @@
+import requests
+import pandas as pd
 import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
