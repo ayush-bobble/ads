@@ -1,11 +1,5 @@
 pipeline {
     agent any
-
-    environment {
-        CHROMEDRIVER_VERSION = '112.0.5615.49'  // Update with the desired version
-        CHROMEDRIVER_PATH = "/usr/local/bin/chromedriver"
-    }
-
     stages {
         stage('Install Dependencies') {
             steps {
@@ -14,33 +8,9 @@ pipeline {
                 }
             }
         }
-
-stage('Download and Install Chromedriver') {
-    steps {
-        script {
-            def chromedriverDirc = "${WORKSPACE}/chromedriver"
-
-            // Create chromedriver directory if it doesn't exist
-            sh "mkdir -p ${chromedriverDirc}"
-
-            // Download and install chromedriver
-            sh """
-                wget -q https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
-                unzip -o chromedriver_linux64.zip -d ${chromedriverDirc}
-                chmod +x ${chromedriverDirc}/chromedriver
-                export PATH=\${PATH}:${chromedriverDirc}
-            """
-        }
-    }
-}
-
         stage('Run Tests') {
             steps {
                 script {
-                    // Add chromedriver to PATH
-                    env.PATH = "${CHROMEDRIVER_PATH}:${env.PATH}"
-
-                    // Run your tests
                     sh 'python3 testAll.py'
                 }
             }
