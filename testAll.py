@@ -6,7 +6,7 @@ from selenium import webdriver
 def get_title_and_response(click_urls):
     # Create Chrome browser with options
     options = webdriver.ChromeOptions()
-    options.headless = False  # Set to True if you want to run in headless mode
+    options.headless = True  # Set to True if you want to run in headless mode
 
     # Start Chrome browser
     browser = webdriver.Chrome(options=options)
