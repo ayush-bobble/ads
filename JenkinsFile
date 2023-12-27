@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        CHROMEDRIVER_VERSION = '120.0.6099.71'  // Update with the desired version
+        CHROMEDRIVER_VERSION = '94.0.4606.61'  // Update with the desired version
         CHROMEDRIVER_PATH = "/usr/local/bin/chromedriver"
     }
 
