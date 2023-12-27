@@ -21,7 +21,7 @@ stage('Download and Install Chromedriver') {
             def chromedriverDir = "${WORKSPACE}/chromedriver"
 
             // Create chromedriver directory if it doesn't exist
-            sh "mkdir -p ${chromedriverDir}"
+            sh "mkdir -p ${chromedriverDir}" || true
 
             // Download and install chromedriver
             sh """
