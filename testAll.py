@@ -4,12 +4,15 @@ from selenium import webdriver
 
 # Function to open URLs in a web browser and capture titles and response codes
 def get_title_and_response(click_urls):
+    # Specify the path to Chromedriver
+    chromedriver_path = '/usr/bin/chromedriver'
+
     # Create Chrome browser with options
     options = webdriver.ChromeOptions()
     options.headless = True  # Set to True if you want to run in headless mode
 
     # Start Chrome browser
-    browser = webdriver.Chrome(options=options)
+    browser = webdriver.Chrome(executable_path=chromedriver_path, options=options)
 
     # Initialize lists to store results
     page_titles = []
