@@ -15,20 +15,19 @@ pipeline {
             }
         }
 
-        stage('Download and Install Chromedriver') {
-            steps {
-                script {
-                    // Download and install chromedriver
-                    sh """
-                        wget -q https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip
-                        unzip chromedriver_linux64.zip
-                        chmod +x chromedriver
-                        sudo mv chromedriver ${CHROMEDRIVER_PATH}
-                        rm chromedriver_linux64.zip
-                    """
-                }
-            }
+       stage('Download and Install Chromedriver') {
+    steps {
+        script {
+            // Download and install chromedriver
+            sh """
+                wget -q https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
+                unzip -o chromedriver_linux64.zip -d ${WORKSPACE}/chromedriver
+                chmod +x ${WORKSPACE}/chromedriver/chromedriver
+                export PATH=\${WORKSPACE}/chromedriver:\${PATH}
+            """
         }
+    }
+}
 
         stage('Run Tests') {
             steps {
