@@ -9,14 +9,12 @@ pipeline {
             }
         }
         stage('Run Tests') {
-    script {
-        
-        def chromedriverPath = '/user/bin/chromedriver'
-        
-        env.PATH = "${chromedriverPath}:${env.PATH}"
-        
-        sh 'python3 testAll.py'
-
+            steps {
+                script {
+                    def chromedriverPath = '/usr/bin/chromedriver'
+                    env.PATH = "${chromedriverPath}:${env.PATH}"
+                    sh 'python3 testAll.py'
+                }
             }
         }
     }
