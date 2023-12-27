@@ -18,17 +18,17 @@ pipeline {
 stage('Download and Install Chromedriver') {
     steps {
         script {
-            def chromedriverDir = "${WORKSPACE}/chromedriver"
+            def chromedriverDirc = "${WORKSPACE}/chromedriver"
 
             // Create chromedriver directory if it doesn't exist
-            sh "mkdir -p ${chromedriverDir}" || true
+            sh "mkdir -p ${chromedriverDirc}"
 
             // Download and install chromedriver
             sh """
                 wget -q https://chromedriver.storage.googleapis.com/94.0.4606.61/chromedriver_linux64.zip
-                unzip -o chromedriver_linux64.zip -d ${chromedriverDir}
+                unzip -o chromedriver_linux64.zip -d ${chromedriverDirc}
                 chmod +x ${chromedriverDir}/chromedriver
-                export PATH=\${PATH}:${chromedriverDir}
+                export PATH=\${PATH}:${chromedriverDirc}
             """
         }
     }
