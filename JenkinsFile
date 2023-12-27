@@ -15,7 +15,7 @@ pipeline {
             }
         }
 
-  stage('Download and Install Chromedriver') {
+stage('Download and Install Chromedriver') {
     steps {
         script {
             def chromedriverDir = "${WORKSPACE}/chromedriver"
