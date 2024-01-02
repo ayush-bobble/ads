@@ -7,7 +7,7 @@ def get_title_and_response(click_urls):
     # Create Chrome browser with options
     options = webdriver.ChromeOptions()
     options.headless = True  # Set to True if you want to run in headless mode
-    chrome_driver_path = "/usr/lib/chromium-browser/"
+    chrome_driver_path = "/usr/lib/chromium-browser/chromedriver"
 
     # Start Chrome browser
     browser = webdriver.Chrome(executable_path=chrome_driver_path ,options=options)
