@@ -3,6 +3,7 @@ import pandas as pd
 from selenium import webdriver
 # from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 
 
 # Function to open URLs in a web browser and capture titles and response codes
@@ -11,7 +12,7 @@ def get_title_and_response(click_urls):
     # chrome_driver_path = Service("/usr/lib/chromium-browser/chromedriver")
     # chrome_driver_path = Service("/usr/bin/chromedriver")
     # firefox_driver_path = FirefoxService("/snap/bin/geckodriver")
-    firefox_driver_path = "/usr/bin/chromedriver"
+    firefox_driver_path = "/usr/lib/chromium-browser/chromedriver"
 
     # options = webdriver.ChromeOptions()
     options = webdriver.ChromeOptions()
@@ -20,6 +21,7 @@ def get_title_and_response(click_urls):
     # Start Chrome browser
     browser = webdriver.Chrome(executable_path=firefox_driver_path ,options=options)
     # browser = webdriver.Firefox(executable_path=firefox_driver_path, options=options)
+    # driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
 
 
     # Initialize lists to store results
