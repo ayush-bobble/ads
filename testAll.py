@@ -11,7 +11,7 @@ def get_title_and_response(click_urls):
     # chrome_driver_path = Service("/usr/lib/chromium-browser/chromedriver")
     # chrome_driver_path = Service("/usr/bin/chromedriver")
     # firefox_driver_path = FirefoxService("/snap/bin/geckodriver")
-    firefox_driver_path = "/snap/bin/geckodriver"
+    firefox_driver_path = "/usr/bin/chromedriver"
 
     # options = webdriver.ChromeOptions()
     options = webdriver.FirefoxOptions()
