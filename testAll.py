@@ -17,6 +17,8 @@ def get_title_and_response(click_urls):
     # options = webdriver.ChromeOptions()
     options = webdriver.ChromeOptions()
     # options.headless = True  # Set to True if you want to run in headless mode
+    options.add_argument("--headless")  # Set to headless mode
+    options.add_argument("--disable-gpu")
 
     # Start Chrome browser
     browser = webdriver.Chrome(executable_path=firefox_driver_path ,options=options)
