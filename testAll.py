@@ -3,7 +3,7 @@ import pandas as pd
 from selenium import webdriver
 # from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.firefox.service import Service as FirefoxService
-from webdriver_manager.firefox import GeckoDriverManager
+# from webdriver_manager.firefox import GeckoDriverManager
 
 
 # Function to open URLs in a web browser and capture titles and response codes
