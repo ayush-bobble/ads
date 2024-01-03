@@ -6,7 +6,9 @@ from selenium.webdriver.chrome.service import Service
 # Function to open URLs in a web browser and capture titles and response codes
 def get_title_and_response(click_urls):
     # Create Chrome browser with options
-    chrome_driver_path = Service("/usr/lib/chromium-browser/chromedriver")
+    # chrome_driver_path = Service("/usr/lib/chromium-browser/chromedriver")
+    chrome_driver_path = Service("/usr/bin/chromedriver")
+
     options = webdriver.ChromeOptions()
     options.headless = True  # Set to True if you want to run in headless mode
 
