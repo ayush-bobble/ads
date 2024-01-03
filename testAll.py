@@ -14,7 +14,7 @@ def get_title_and_response(click_urls):
     firefox_driver_path = "/usr/bin/chromedriver"
 
     # options = webdriver.ChromeOptions()
-    options = webdriver.FirefoxOptions()
+    options = webdriver.ChromeOptions()
     # options.headless = True  # Set to True if you want to run in headless mode
 
     # Start Chrome browser
