@@ -10,7 +10,8 @@ def get_title_and_response(click_urls):
     # Create Chrome browser with options
     # chrome_driver_path = Service("/usr/lib/chromium-browser/chromedriver")
     # chrome_driver_path = Service("/usr/bin/chromedriver")
-    firefox_driver_path = FirefoxService("/snap/bin/geckodriver")
+    # firefox_driver_path = FirefoxService("/snap/bin/geckodriver")
+    firefox_driver_path = "/snap/bin/geckodriver"
 
     # options = webdriver.ChromeOptions()
     options = webdriver.FirefoxOptions()
@@ -18,7 +19,7 @@ def get_title_and_response(click_urls):
 
     # Start Chrome browser
     # browser = webdriver.Chrome(service=chrome_driver_path ,options=options)
-    browser = webdriver.Firefox(service=firefox_driver_path, options=options)
+    browser = webdriver.Firefox(executable_path=firefox_driver_path, options=options)
 
 
     # Initialize lists to store results
