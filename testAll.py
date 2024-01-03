@@ -18,8 +18,8 @@ def get_title_and_response(click_urls):
     # options.headless = True  # Set to True if you want to run in headless mode
 
     # Start Chrome browser
-    # browser = webdriver.Chrome(service=chrome_driver_path ,options=options)
-    browser = webdriver.Firefox(executable_path=firefox_driver_path, options=options)
+    browser = webdriver.Chrome(executable_path=firefox_driver_path ,options=options)
+    # browser = webdriver.Firefox(executable_path=firefox_driver_path, options=options)
 
 
     # Initialize lists to store results
