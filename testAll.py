@@ -1,19 +1,25 @@
 import requests
 import pandas as pd
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+# from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service as FirefoxService
+
 
 # Function to open URLs in a web browser and capture titles and response codes
 def get_title_and_response(click_urls):
     # Create Chrome browser with options
     # chrome_driver_path = Service("/usr/lib/chromium-browser/chromedriver")
-    chrome_driver_path = Service("/usr/bin/chromedriver")
+    # chrome_driver_path = Service("/usr/bin/chromedriver")
+    firefox_driver_path = FirefoxService("/snap/bin/geckodriver")
 
-    options = webdriver.ChromeOptions()
+    # options = webdriver.ChromeOptions()
+    options = webdriver.FirefoxOptions()
     options.headless = True  # Set to True if you want to run in headless mode
 
     # Start Chrome browser
-    browser = webdriver.Chrome(service=chrome_driver_path ,options=options)
+    # browser = webdriver.Chrome(service=chrome_driver_path ,options=options)
+    browser = webdriver.Firefox(service=firefox_driver_path, options=options)
+
 
     # Initialize lists to store results
     page_titles = []
